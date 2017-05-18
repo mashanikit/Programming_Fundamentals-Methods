@@ -101,6 +101,9 @@ puts sum(other_expenses)
 # It turns out that everything in this grocery store you're visiting is stored alphabetically, so to better plan out what you need to buy you should sort your grocery list and output it with asterisks again.
 # After looking everywhere, you can't find the salmon. Delete it from your list and redisplay the list one last time.
 # After you're done, be sure you have everything committed and pushed to your github repo.
+
+groceries = ["salmon", "avocado", "spinach", "peppers"]
+
 def print_list(groceries)
   symbol = "*"
   groceries.each do |item|
@@ -112,7 +115,6 @@ def addtolist(groceries, new_item)
   groceries << new_item
 end
 
-groceries = ["salmon", "avocado", "spinach", "peppers"]
 
 print_list(groceries)
 puts ""
@@ -149,3 +151,76 @@ print_list(groceries)
 #   groceries.map do |item|
 #     "#{symbol} #{item}"
 # end
+
+# Don't forget to try running your code after each step, and to commit frequently as you work!
+# Start out by creating the following hash representing the number of students in past Bitmaker cohorts:
+# students = {
+#   :cohort1 => 34,
+#   :cohort2 => 42,
+#   :cohort3 => 22
+# }
+# Create a method that displays the name and number of students for each cohort, like so:
+# Add cohort 4, which had 43 students, to the hash.
+# Use the keys method to output all of the cohort names.
+# The classrooms have been expanded! Increase each cohort size by 5% and display the new results.
+# Delete the 2nd cohort and redisplay the hash.
+# BONUS: Calculate the total number of students across all cohorts using each and a variable to keep track of the total. Output the result.
+# BONUS: Create another similar hash called staff and display it using the display method from above.
+# After you're done, be sure you have committed and pushed everything to your Github repo.
+
+students = {
+  :cohort1 => 34,
+  :cohort2 => 42,
+  :cohort3 => 22
+}
+
+def name_number(hash)
+  hash.each do |cohort, number|
+    puts "#{cohort}: #{number} students"
+  end
+end
+  name_number(students)
+
+students[:cohort4] = 43
+
+def cohort_names(hash)
+  hash.each do |cohort, number|
+    puts "#{cohort}"
+  end
+end
+
+cohort_names(students)
+
+def five_increase(hash)
+  hash.each do |cohort, number|
+    puts "#{cohort}: #{number * 1.05} students"
+  end
+end
+
+five_increase(students)
+
+students.delete(:cohort2)
+name_number(students)
+
+# BONUS: Calculate the total number of students across all cohorts using each and a variable to keep track of the total. Output the result.
+
+def total_number(hash)
+  sum = 0
+    hash.each do |key, value|
+       sum += value
+    end
+    puts "Total sum of the students is #{sum}"
+end
+
+total_number(students)
+
+# BONUS: Create another similar hash called staff and display it using the display method from above.
+# After you're done, be sure you have committed and pushed everything to your Github repo.
+
+staff = {
+  :mina => "amazing",
+  :cassidy => "so helpful",
+  :daniel => "very helpful"
+}
+
+name_number(staff)
